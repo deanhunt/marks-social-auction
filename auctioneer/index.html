@@ -8,26 +8,23 @@
 <body>
 	<section id="graph">
 		<ul id="graph-profiles">
-			<li data-bids="2">
-				<span class="name">First guy.</span>
-				<img src="/assets/deanprofile.png">
-			</li>
-			<li data-bids="1">Second Guy.</li>
-			<li data-bids="6">Third Guy.</li>
-			<li data-bids="1">Fourth Guy.</li>
-			<li data-bids="6">Fifth Guy.</li>
 		</ul>
 	</section>
-	<aside id="timer"></aside>
+	<aside id="timer" contenteditable>30:00</input>
 
+	<!-- Template for profiles. -->
 	<script type="text/html" id="template-profile">
-
+	<li data-bids="1">
+		<span class="name"><%= name %></span>
+		<img src="<%= photo %>">
+	</li>
 	</script>
 
 	<script src="js/jquery-2.0.3.js"></script>
 	<script src="js/underscore.js"></script>
 	<script src="js/backbone.js"></script>
 
+	<script src="js/Timer.js"></script>
 	<script src="js/ProfileModel.js"></script>
 	<script src="js/ProfileCollection.js"></script>
 	<script src="js/Auctioneer.js"></script>
