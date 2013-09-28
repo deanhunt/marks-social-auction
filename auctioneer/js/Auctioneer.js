@@ -26,7 +26,6 @@ window.Auctioneer = Backbone.View.extend({
 		this.el.addEventListener('keyup', this.keyupEvent_.bind(this));
 
 		this.timer_.render();
-		this.timer_.start();
 	},
 
 	drawProfiles_: function(){
@@ -91,16 +90,21 @@ window.Auctioneer = Backbone.View.extend({
 		this.redraw_();
 	},
 
-	save_: function(){
-
-	},
-
-	load_: function(){
-
+	timerToggle_: function(evt){
+		var isStart = !evt.shiftKey;
+		if (isStart){
+			this.timer_.start();
+		} else {
+			this.timer_.stop();
+		}
 	},
 
 	auctionOver_: function(){
-		alert('Auction over!');
+		for (var i = 0; i < 20; i++){
+			cornify_add();
+		}
+
+		document.body.style.webkitTransform = '';
 	},
 
 	bling_nyan_: function(evt){
@@ -197,6 +201,9 @@ window.Auctioneer = Backbone.View.extend({
 				break;
 			case 83: // 's'.
 				this.bling_start_skew_(evt);
+				break;
+			case 84: // 't'.
+				this.timerToggle_(evt);
 				break;
 		}
 	},

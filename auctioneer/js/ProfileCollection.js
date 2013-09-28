@@ -41,8 +41,8 @@ window.ProfileCollection = Backbone.Collection.extend({
 				replacement: '/assets/skeleton.png'
 			},
 			{
-				name: 'Addie',
-				photo: '/assets/addie-basic.png',
+				name: 'Darsha',
+				photo: '/assets/darsha-basic.jpg',
 				replacement: '/assets/superman.png'
 			},
 			{

@@ -153,8 +153,8 @@ body {
 
 #bling-mystery {
 	position: absolute;
-	top: calc(50% - 100px);
-	left: calc(50% - 300px);
+	top: calc(50% - 124px);
+	left: calc(50% - 324px);
 	z-index: 10000;
 	-webkit-transform: scale(0);
 }
@@ -167,4 +167,5 @@ body {
 #bling-mystery img {
 	width: 200px;
 	border-radius: 50%;
+	border: 4px solid white;
 }
