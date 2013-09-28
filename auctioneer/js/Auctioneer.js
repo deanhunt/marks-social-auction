@@ -9,6 +9,11 @@ window.Auctioneer = Backbone.View.extend({
 			duration: 900,
 			onDone: this.auctionOver_.bind(this)
 		});
+
+		this.model.on('reset', function(){
+			this.drawProfiles_();
+			this.redraw_();
+		}.bind(this));
 	},
 
 	render: function(){
@@ -32,6 +37,7 @@ window.Auctioneer = Backbone.View.extend({
 		this.model.forEach(function(profile, i){
 			var data = profile.toJSON();
 			data.index = i + 1;
+			data.cost = data.bids * Auctioneer.BID_INCREMENT;
 			var markup = _.template(profileTemplate, data);
 			graphEl.innerHTML = graphEl.innerHTML + markup;
 		}, this);
@@ -59,8 +65,12 @@ window.Auctioneer = Backbone.View.extend({
 
 		if (!bids && !isIncrease) return;
 
-		profileEl.dataset.bids = isIncrease ? bids + 1 : bids - 1;
-		profileEl.dataset.cost = parseInt(profileEl.dataset.bids, 10) * Auctioneer.BID_INCREMENT;
+		var updatedBid = isIncrease ? bids + 1 : bids - 1;
+		profileEl.dataset.bids = updatedBid;
+		profileEl.dataset.cost = updatedBid * Auctioneer.BID_INCREMENT;
+
+		this.model.at(index).set('bids', updatedBid);
+		this.model.save();
 
 		// if (parseInt(profileEl.dataset.bids, 10) > Auctioneer.ON_FIRE_BIDS){
 		// 	profileEl.classList.add('on-fire');

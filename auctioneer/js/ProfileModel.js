@@ -2,6 +2,8 @@ window.ProfileModel = Backbone.Model.extend({
 	defaults: {
 		name: 'Untitled',
 
-		photo: ''
+		photo: '',
+
+		bids: 0
 	}
 });
