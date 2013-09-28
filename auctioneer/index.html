@@ -7,22 +7,41 @@
 </head>
 <body>
 	<section id="graph">
-		<ul id="graph-profiles">
-		</ul>
+		<ul id="graph-profiles"></ul>
+		<div id="balloons" class="graph-line"></div>
+		<div id="cats" class="graph-line"></div>
+		<div id="wildness" class="graph-line"></div>
 	</section>
-	<aside id="timer" contenteditable>30:00</input>
+	<aside id="timer" contenteditable></aside>
+
+	<div id="bling-nyan">
+		<img src="/Assets/nyan-cat.gif">
+	</div>
+
+	<div id="bling-fog">
+		<img src="/Assets/cloud.png">
+	</div>
+
+	<div id="bling-mystery">
+		<img class="jeremy" src="/Assets/jeremy-basic.jpg">
+		<img class="barry" src="/Assets/barry-basic.jpg">
+		<img class="jamie" src="/Assets/jamie-basic.jpg">
+	</div>
 
 	<!-- Template for profiles. -->
 	<script type="text/html" id="template-profile">
-	<li data-bids="1">
-		<span class="name"><%= name %></span>
-		<img src="<%= photo %>">
+	<li data-bids="0" data-cost="0">
+		<span class="name"><%= index %>. <%= name %></span>
+		<img class="basic" src="<%= photo %>">
+		<img class="replacement" src="<%= replacement %>">
 	</li>
 	</script>
 
 	<script src="js/jquery-2.0.3.js"></script>
 	<script src="js/underscore.js"></script>
 	<script src="js/backbone.js"></script>
+
+	<script src="js/cornify.js"></script>
 
 	<script src="js/Timer.js"></script>
 	<script src="js/ProfileModel.js"></script>

@@ -1,23 +1,28 @@
 var profiles = new ProfileCollection([
 	{
-		name: 'First Guy',
-		photo: '/assets/deanprofile.png'
+		name: 'Kim',
+		photo: '/assets/kim-basic.jpg',
+		replacement: '/assets/bond.png'
 	},
 	{
-		name: 'Second Guy',
-		photo: 'nothing.gif'
+		name: 'TWEAK',
+		photo: '/assets/tweak-basic.jpg',
+		replacement: '/assets/priest.png'
 	},
 	{
-		name: 'Third Guy',
-		photo: 'nothing.gif'
+		name: 'Anthony',
+		photo: '/assets/anthony-basic.jpg',
+		replacement: '/assets/skeleton.png'
 	},
 	{
-		name: 'Fourths Guy',
-		photo: 'nothing.gif'
+		name: 'Addie',
+		photo: '/assets/addie-basic.png',
+		replacement: '/assets/superman.png'
 	},
 	{
-		name: 'Fifth Guy',
-		photo: 'nothing.gif'
+		name: 'Mystery',
+		photo: '/assets/mystery-basic.jpg',
+		replacement: '/assets/yoda.jpg'
 	}
 ]);
 

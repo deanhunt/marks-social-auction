@@ -18,6 +18,8 @@ window.Timer = Backbone.View.extend({
 	},
 
 	start: function(){
+		if (!this.seconds_) return;
+
 		if (this.ticker_) clearInterval(this.ticker_);
 
 		this.ticker_ = setInterval(this.tick_.bind(this), 1000);

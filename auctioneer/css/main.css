@@ -6,48 +6,165 @@
 body {
 	font-weight: bold;
 	font-family: "Lucida Grande";
+	overflow: hidden;
+	/*transition: -webkit-transform ;*/
 }
 
 #timer {
 	position: absolute;
 	top: 10px;
-	right: 10px;
-	font-size: 20px;
-	font-style: italic;
+	right: 20px;
+	font-size: 32px;
+}
+
+#graph {
+	width: 100%;
+	position: relative;
 }
 
 #graph-profiles {
 	width: 100%;
-	height: 400px;
-	margin-top: 40px;
+	height: 100%;
+	margin-top: 70px;
 }
 
 #graph-profiles li {
 	display: block;
 	position: relative;
-	height: 48px;
-	margin: 10px 0;
+	z-index: 1000;
+	height: 80px;
+	margin: 40px 0;
 	padding: 6px;
 	color: white;
 	font-size: 11px;
 	width: 0;
 	background-color: #3B5999;
-
-	transition: width 100ms ease-in;
+	transition: width 200ms ease-in-out, background-color 500ms ease-out;
 }
 
-#graph-profiles li.active {
-	background-color: red;
-	transition:; all 100ms ease-in;
+#graph-profiles li.higher {
+	background-color: gold;
+	transition: width 200ms ease-in-out, background-color 500ms ease-out;
+}
+
+#graph-profiles li.lower {
+	background-color: black;
+	transition: width 200ms ease-in-out, background-color 500ms ease-out;
 }
 
 #graph-profiles li img {
 	position: absolute;
 	left: 100%;
-	top: -10%;
-	height: 120%;
-	margin-left: calc(-48px / 2);
+	top: -15%;
+	height: 130%;
+	margin-left: calc(-80px / 2);
 	border-radius: 50%;
 	border: 2px solid white;
 	box-sizing: border-box;
+}
+
+#graph-profiles li img.basic {
+	display: block;
+}
+
+#graph-profiles li img.replacement {
+	display: none;
+}
+
+#graph-profiles.replace li img.basic {
+	display: none;
+}
+
+#graph-profiles.replace li img.replacement {
+	display: block;
+}
+
+#graph-profiles li .name {
+	display: block;
+	font-size: 20px;
+	margin-top: 27px;
+}
+
+#graph-profiles li::after {
+	display: block;
+	position: absolute;
+	right: 60px;
+	top: 34px;
+	color: white;
+	font-size: 20px;
+	content: '€' attr(data-cost);
+}
+
+#graph-profiles li.on-fire {
+	background-color: red;
+}
+
+/* Graph lines. */
+
+.graph-line {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	border-right: 2px solid #3B5999;
+}
+
+#balloons {
+	left: 40%;
+}
+
+#cats {
+	left: 60%;
+}
+
+#wildness {
+	left: 80%;
+}
+
+/* Bling. */
+
+#bling-nyan {
+	position: absolute;
+	left: -1800px;
+	top: 0;
+	z-index: 10000;
+	width: 100%;
+}
+
+#bling-nyan.active {
+	left: 100%;
+	transition: left 1200ms ease-out;
+}
+
+#bling-fog {
+	opacity: 0;
+	position: absolute;
+	left: -600px;
+	top: 0;
+	z-index: 100000;
+	width: 100%;
+}
+
+#bling-fog.active {
+	opacity: 1;
+	left: 1500px;
+	transition: left 3000ms linear, opacity 600ms ease-in-out;
+}
+
+#bling-mystery {
+	position: absolute;
+	top: calc(50% - 100px);
+	left: calc(50% - 300px);
+	z-index: 10000;
+	-webkit-transform: scale(0);
+}
+
+#bling-mystery.active {
+	-webkit-transform: scale(2);
+	transition: -webkit-transform 200ms ease-in;
+}
+
+#bling-mystery img {
+	width: 200px;
+	border-radius: 50%;
 }
