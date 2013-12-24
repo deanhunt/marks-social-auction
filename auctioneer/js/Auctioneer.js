@@ -172,6 +172,7 @@ window.Auctioneer = Backbone.View.extend({
 		document.body.style.webkitTransform = skew + ' ' + scale;
 	},
 
+ 	// All your keyboard shortcuts in one handy list
 	keydownEvent_: function(evt){
 		switch (evt.which){
 			case 27: // 'Esc'.
